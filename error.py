@@ -14,19 +14,36 @@
 import time
 from firebase import firebase 
 import numpy as np
+import smtplib
+import argparse
+ap = argparse.ArgumentParser()
+ap.add_argument("-e", "--errorornot", required = True)
+args = vars(ap.parse_args())
+
 
 firebase = firebase.FirebaseApplication('https://storage-97729.firebaseio.com',None)
 
-for _ in range(10000):
+if (args["errorornot"] == "e"):
+    data = "Signal Lost"
+    print(data)
+    firebase.put('','/error',data)
+if (args["errorornot"] == "o"):
+    data = "ok"
+    print(data)
+    firebase.put('','/error/',data)
+    # pass
+    # time.sleep(5)
+    # pass
+# for _ in range(1):
     # phrandom = np.random.random_integers(7,9)
     # turbidityrandom = np.random.random_integers(2,6)
     # temprandom = np.random.random_integers(23,28)
     # timestr = time.strftime("%Y-%m-%d %I:%M:%S")
-    format_list = [np.random.random_integers(3,6),np.random.random_integers(900,1055),np.random.random_integers(21,25),time.strftime("%Y-%m-%d %I:%M:%S")]
+    # format_list = [np.random.random_integers(3,5),np.random.random_integers(900,1055),np.random.random_integers(20,25),time.strftime("%Y-%m-%d %I:%M:%S")]
 
-    data = {"value" : "{} {} {} {}".format(*format_list)}
-    print(data)
-    firebase.post('/FXRD7791',data)
-    time.sleep(5)
+    
+
+
+
 
 

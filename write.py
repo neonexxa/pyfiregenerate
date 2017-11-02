@@ -17,7 +17,7 @@ import numpy as np
 
 firebase = firebase.FirebaseApplication('https://storage-97729.firebaseio.com',None)
 
-for _ in range(100):
+for _ in range(10000):
     # phrandom = np.random.random_integers(7,9)
     # turbidityrandom = np.random.random_integers(2,6)
     # temprandom = np.random.random_integers(23,28)
@@ -27,6 +27,6 @@ for _ in range(100):
     data = {"value" : "{} {} {} {}".format(*format_list)}
     print(data)
     firebase.post('/FXRD3214',data)
-    time.sleep(3)
+    time.sleep(5)
 
 
