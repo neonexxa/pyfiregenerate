@@ -33,7 +33,7 @@ for _ in range(1):
     smtp_server.ehlo()
     smtp_server.starttls()
     smtp_server.login('firdaushishamuddin@gmail.com', '12haneefa34')
-    smtp_server.sendmail('firdaushishamuddin@gmail.com', 'nazmiasri95@gmail.com', 'Subject: Happy Australia Day!\nHi Everyone! Happy Australia Day! Cheers, Julian')
+    smtp_server.sendmail('firdaushishamuddin@gmail.com', 'firdaushishamuddin@gmail.com', 'Subject: Warning ! Anomalies detected.')
     smtp_server.quit()
     print("email sent")
 
